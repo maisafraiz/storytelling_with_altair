@@ -18,13 +18,33 @@ st.write('Starting table:')
 
 exercise21 = pd.read_excel(r"C:\Users\maisa\Downloads\2.1-EXERCISE.xlsx")
 
-st.table(exercise21)
+st.dataframe(exercise21)
 
 st.write("Now the following fixes are suggested by the book:")
 st.markdown("* Tiers not ordered")
+st.markdown("* Doesn't have a total")
 st.markdown("* Total not summing 100%")
-st.markdown("* Round numbers")
+st.markdown("* Round numbers and percentage")
 
 st.write("This is the new table:")
 
-exercise21 = exercise21[[cols]]
+exercise21 = exercise21.loc[[1, 0, 2, 3, 4]]
+exercise21['% Accounts'] = exercise21['% Accounts'].apply(lambda x: x*100)
+exercise21['% Revenue'] = exercise21['% Revenue'].apply(lambda x: x*100)
+
+other_account_per = 100 - exercise21['% Accounts'].sum()
+other_revenue_per = 100 - exercise21['% Revenue'].sum()
+
+other_account_num = (other_account_per*exercise21['# of Accounts'][0])/exercise21['% Accounts'][0]
+other_revenue_num = (other_revenue_per*exercise21['Revenue ($M)'][0])/exercise21['% Revenue'][0]
+
+
+exercise21.loc[len(exercise21)] = ["All other", other_account_num, other_account_per, other_revenue_num, other_revenue_per]
+
+exercise21.loc[len(exercise21)] = ["Total", exercise21['# of Accounts'].sum(), exercise21['% Accounts'].sum(), exercise21['Revenue ($M)'].sum(), exercise21['% Revenue'].sum()]
+
+
+exercise21['% Accounts'] = exercise21['% Accounts'].apply(lambda x: round(x))
+exercise21['Revenue ($M)'] = exercise21['Revenue ($M)'].apply(lambda x: round(x, 1))
+
+st.dataframe(exercise21)
