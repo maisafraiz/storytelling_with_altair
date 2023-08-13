@@ -6,6 +6,7 @@ Here's our first attempt at using data to create a table:
 import streamlit as st
 import pandas as pd
 import numpy as np
+import altair as alt
 
 st.title('Storytelling with Data!')
 
@@ -48,3 +49,14 @@ exercise21['% Accounts'] = exercise21['% Accounts'].apply(lambda x: round(x))
 exercise21['Revenue ($M)'] = exercise21['Revenue ($M)'].apply(lambda x: round(x, 1))
 
 st.dataframe(exercise21)
+
+st.write("*Note*: I will not be putting the symbols $ or % like the example shown in the book as it would turn the numbers into strings.")
+
+st.write("The author then tweaks the table a little more, adding coloring to the cells; since my project does not focus on tables, I will not do this exercise.")
+
+teste = alt.Chart(exercise21).mark_bar().encode(
+    x='Tier',
+    y='% Accounts'
+)
+
+st.write(teste)
