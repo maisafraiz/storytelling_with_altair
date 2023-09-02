@@ -75,4 +75,67 @@ chart = alt.Chart(exercise21).mark_bar().encode(
 
 st.altair_chart(chart, use_container_width=False)
 
-st.caption("Note to self: I've been finding really difficult to translate some examples of the books, as I feel some things are easy in Excel but I cannot find similar documentaion for it in Altair (like adding the lines connecting the bars in the graph above).")
+st.caption("Note to self: I've been finding really difficult to translate some examples of the books, as I feel some things are easy in Excel but I cannot find similar documentation for it in Altair.")
+
+st.header('Backing up - learning Altair')
+
+st.write('Due to difficulties adapting Excel graphs to Altair, I\'ll do a quick tutorial on the library.')
+
+st.caption("First note: always work with tidy data - where each variable is a column, each observation is a row, and each type of observational unit is a table. This will make your life easier.")
+
+st.write("**Chart object:**")
+
+st.code("chart = alt.Chart(data)")
+
+st.write("**Mark attribute:**")
+
+st.write("Pie chart:")
+st.code("alt.Chart(data).mark_arc()")
+
+st.write("Filled area plot:")
+st.code("alt.Chart(data).mark_area()")
+
+st.write("Bar plot:")
+st.code("alt.Chart(data).mark_bar()")
+
+st.write("Scatter plot with circles:")
+st.code("alt.Chart(data).mark_circle()")
+
+st.write("Geographic:")
+st.code("alt.Chart(data).mark_geoshape()")
+
+st.write("Scatter plot with image markers:")
+st.code("alt.Chart(data).mark_image()")
+
+st.write("Line plot:")
+st.code("alt.Chart(data).mark_line()")
+
+st.write("Scatter plot with point shapes:")
+st.code("alt.Chart(data).mark_point()")
+
+st.write("Filled rectangle:")
+st.code("alt.Chart(data).mark_rec()")
+
+st.write("Line spanning the axis:")
+st.code("alt.Chart(data).mark_rule()")
+
+st.write("Scatter plot with squares:")
+st.code("alt.Chart(data).mark_square()")
+
+st.write("Scatter plot with text:")
+st.code("alt.Chart(data).mark_text()")
+
+st.write("Tick mark:")
+st.code("alt.Chart(data).mark_tick()")
+
+st.write("Line with variable width:")
+st.code("alt.Chart(data).mark_trail()")
+
+st.write("Box plot:")
+st.code("alt.Chart(data).mark_boxplot()")
+
+st.write("Continuous band around a line:")
+st.code("alt.Chart(data).mark_errorband()")
+
+st.write("Errorbar around a point:")
+st.code("alt.Chart(data).mark_errorbar()")
