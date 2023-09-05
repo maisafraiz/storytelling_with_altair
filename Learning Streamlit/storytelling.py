@@ -59,9 +59,9 @@ exercise21.drop(exercise21.index[6], inplace=True)
 
 chart = alt.Chart(exercise21).mark_bar().encode(
     y = alt.Y('value:Q', axis=alt.Axis(title='%')),
-    x=alt.X('variable:N', axis=alt.Axis(title=None, labels = False)),
-    color=alt.Color('variable:N', legend=alt.Legend(title='Metric')),
-    column=alt.Column('Tier:O', header=alt.Header(labelOrient='bottom'),
+    x = alt.X('variable:N', axis=alt.Axis(title=None, labels = False)),
+    color = alt.Color('variable:N', legend=alt.Legend(title='Metric')),
+    column = alt.Column('Tier:O', header=alt.Header(labelOrient='bottom'),
                       sort = ['A+',  'A', 'B', 'C', 'D', 'All other', 'Total'])
 ).transform_fold(
     fold = ['% Accounts', '% Revenue'],
